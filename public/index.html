@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Historical Chart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Chart icon">
+        <path d="M3 20L9 14L13 18L21 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M17 6H21V10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Stock Historical Chart
+    </h1>
+  </header>
+
+  <main>
+    <!-- Controls -->
+    <div class="controls">
+      <div class="control-group">
+        <label for="ticker-input">Ticker</label>
+        <div class="input-row">
+          <input
+            type="text"
+            id="ticker-input"
+            placeholder="e.g. AAPL"
+            spellcheck="false"
+            autocomplete="off"
+            maxlength="10"
+          />
+          <button id="search-btn" type="button">Search</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label for="date-input">Date (as-of)</label>
+        <input type="date" id="date-input" />
+      </div>
+
+      <div class="control-group tf-group">
+        <label>Timeframe</label>
+        <div class="tf-buttons" id="tf-buttons">
+          <button data-tf="1"  type="button">1m</button>
+          <button data-tf="5"  type="button">5m</button>
+          <button data-tf="15" type="button">15m</button>
+          <button data-tf="1h" type="button">1h</button>
+          <button data-tf="1D" type="button" class="active">1D</button>
+          <button data-tf="1W" type="button">1W</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div id="status" class="status" aria-live="polite"></div>
+
+    <!-- Chart -->
+    <div id="chart-wrapper">
+      <div id="chart-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" style="opacity:0.25;margin-bottom:12px">
+          <path d="M3 20L9 14L13 18L21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17 6H21V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Enter a ticker and click Search to load the chart</span>
+      </div>
+      <div id="chart-container"></div>
+    </div>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="tooltip"></div>
+  </main>
+
+  <footer>
+    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">
+      Created with Perplexity Computer
+    </a>
+  </footer>
+
+  <!-- TradingView Lightweight Charts v5 -->
+  <script src="https://unpkg.com/lightweight-charts@5.0.5/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

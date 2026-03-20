@@ -12,6 +12,7 @@ const TIMEFRAME_MAP = {
   '1D':  { multiplier: 1,  timespan: 'day'    },
   '1W':  { multiplier: 1,  timespan: 'week'   },
   '1':   { multiplier: 1,  timespan: 'minute'  },
+  '2':   { multiplier: 2,  timespan: 'minute'  },
   '5':   { multiplier: 5,  timespan: 'minute'  },
   '15':  { multiplier: 15, timespan: 'minute'  },
   '1h':  { multiplier: 1,  timespan: 'hour'   },
